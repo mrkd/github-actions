@@ -9,6 +9,16 @@ on:
 jobs:
   Build:
     runs-on: macOS-latest
+    strategy:
+      matrix:
+        destination: ['platform=iOS Simulator,OS=13.1,name=iPhone 8', 'platform=iOS Simulator,OS=13.1,name=iPhone 9', 'platform=iOS Simulator,OS=13.4,name=iPhone 11 Pro']
+        scheme: ['GithubActions']
     steps:
-    - name: Dump file hierarchy
-      run: ls -R
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Bundle Install
+        run: bundle install
+      - name: Build and test
+        run: bundle exec fastlane scan --scheme "GithubActions"
+        env:
+          destination: $
