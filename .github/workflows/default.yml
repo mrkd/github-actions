@@ -1,0 +1,14 @@
+name: HelloActions
+
+on:
+  # Trigger the workflow on push
+  # but only for the master branch
+  push:
+    branches:
+      - master
+jobs:
+  Build:
+    runs-on: macOS-latest
+    steps:
+    - name: Dump file hierarchy
+      run: ls -R
