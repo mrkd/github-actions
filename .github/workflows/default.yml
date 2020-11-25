@@ -16,10 +16,9 @@ jobs:
         scheme: ['GithubActions']
     steps:
       - name: Set tag
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        run: echo "Set tag"
         env:
           RELEASE_VERSION: "${GITHUB_REF#refs/*/}"
-          TEST_RELEASE_VERSION: $GITHUB_REF#refs/*/ # This does not work?
       - name: Test setting RELEASE_VERSION
         run: |
           echo "RELEASE_VERSION: $RELEASE_VERSION"
