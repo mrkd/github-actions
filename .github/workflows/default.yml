@@ -16,6 +16,7 @@ jobs:
         scheme: ['GithubActions']
     steps:
       - name: Set tag
+        run: echo "Set tag"
         env:
           RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
       - name: Test setting RELEASE_VERSION
