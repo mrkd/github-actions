@@ -18,7 +18,7 @@ jobs:
       - name: Set tag
         run: echo "Set tag"
         env:
-          RELEASE_VERSION: ${GITHUB_REF#refs/*/}
+          RELEASE_VERSION: "${GITHUB_REF#refs/*/}"
       - name: Test setting RELEASE_VERSION
         run: |
           echo $RELEASE_VERSION
