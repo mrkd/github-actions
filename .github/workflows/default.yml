@@ -16,6 +16,10 @@ jobs:
     steps:
       - name: Set tag
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Test setting RELEASE_VERSION
+        run: |
+          echo $RELEASE_VERSION
+          echo ${{ env.RELEASE_VERSION }}
       - name: Checkout
         uses: actions/checkout@v2
       - name: Bundle Install
