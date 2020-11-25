@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - master
+  create:
 jobs:
   Build:
     runs-on: macOS-latest
